@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Degular Demo";
+  src: url("./fonnts.com-DegularDemo-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Degular Demo";
+  src: url("./fonnts.com-DegularDemo-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Add more @font-face declarations for different weights/styles as needed */
