@@ -1,6 +1,6 @@
 import { VscClose } from "react-icons/vsc";
 import Overlay from "../ui/Overlay";
-import { useTransactionFilters } from "./hooks/useTransactionFilters";
+import { useTransactionFilters } from "@/hooks/useTransactionFilters";
 import { timeframes } from "./constants/filter-options";
 import RadioDropdown from "../ui/RadioDropdown";
 import { txTypeOptions, txStatusOptions } from "./constants/filter-options";
@@ -33,11 +33,11 @@ const TransactionFilterMenu = ({
     <Overlay
       isVisible={isVisible}
       onClose={toggleParam}
-      className={`fixed right-2 top-4 h-[calc(100vh-2rem)] w-[456px] bg-white transition-transform duration-300 rounded-[20px] ${
+      className={`fixed right-0 md:right-2 top-4 h-[calc(100vh-2rem)] w-full md:w-[456px] bg-white transition-transform duration-300 rounded-[20px] ${
         isVisible ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="px-4 py-6 sm:px-6 h-full">
+      <div className="px-4 py-6 sm:px-6 h-full flex flex-col">
         <div className="flex items-center justify-between">
           <h3 className="text-2xl font-bold">Filter</h3>
           <button
@@ -49,9 +49,9 @@ const TransactionFilterMenu = ({
             <VscClose className="text-primary w-[25px] h-[25px]" />
           </button>
         </div>
-        <div className="relative flex-1 px-1 h-[calc(100%-2rem)]">
-          <div className="pt-10 max-w-xl h-full flex flex-col">
-            <div className="flex gap-1 mb-6">
+        <div className="relative flex-1 px-1 overflow-y-auto">
+          <div className="pt-4 md:pt-10 max-w-xl h-full flex flex-col">
+            <div className="flex flex-wrap gap-1 mb-6">
               {timeframes.map((timeframe) => (
                 <button
                   data-testid={`timeframe-button-${timeframe.id}`}
@@ -74,8 +74,8 @@ const TransactionFilterMenu = ({
 
             <div className="mb-6">
               <h3 className="text-base font-medium mb-2">Date Range</h3>
-              <div className="flex gap-3">
-                <div className="relative w-full flex justify-between gap-2">
+              <div className="flex flex-col md:flex-row gap-3">
+                <div className="relative w-full flex flex-col md:flex-row justify-between gap-2">
                   <div className="relative w-full">
                     <label htmlFor="start-date" className="sr-only">
                       Start Date
@@ -132,7 +132,7 @@ const TransactionFilterMenu = ({
               />
             </div>
 
-            <div className="mt-auto">
+            <div className="mt-auto pt-4 pb-6 md:pb-0">
               <div className="flex gap-4">
                 <Button
                   variant="ghost"
